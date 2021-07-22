@@ -1,0 +1,24 @@
+{
+    "name": "khudy/app",
+    "description": "Test shop!",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.3",
+        "kint-php/kint": "^3.3",
+        "ext-pdo": "*",
+        "ext-json": "*"
+    },
+    "license": "Alternative",
+    "authors": [
+        {
+            "name": "Wolf-In-Sneakers",
+            "email": "khudyakov1602@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Shop\\": ""
+        }
+    }
+}

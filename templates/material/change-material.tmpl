@@ -1,0 +1,68 @@
+{% extends "base.tmpl" %}
+
+{% block content %}
+    {% if material is not empty %}
+        <div class="container">
+            <h1 class="my-md-5 my-4">Изменить материал</h1>
+            <div class="row">
+                <div class="col-lg-5 col-md-8">
+                    <form method="POST" action="">
+                        {% if success is not empty %}
+                            <h5 class="my-md-2 my-2">{{ success }}</h5>
+                        {% endif %}
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelectType" name="id_type" required="required">
+                                {% for type in types %}
+                                    <option value="{{ type.id_type }}"
+                                            {% if material.id_type == type.id_type %}selected{% endif %}>{{ type.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="floatingSelectType">Тип</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, выберите значение
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelectCategory" name="id_category"
+                                    required="required">
+                                {% for category in categories %}
+                                    <option value="{{ category.id_category }}"
+                                            {% if material.id_category == category.id_category %}selected{% endif %}>{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="floatingSelectCategory">Категория</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, выберите значение
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" placeholder="Напишите название" id="floatingName"
+                                   name="name" required value="{{ material.name }}">
+                            <label for="floatingName">Название</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, заполните поле
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" placeholder="Напишите авторов" id="floatingAuthor"
+                                   name="author" value="{{ material.author }}">
+                            <label for="floatingAuthor">Авторы</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, заполните поле
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Напишите краткое описание" id="floatingDescription"
+                              name="description" style="height: 100px">{{ material.description }}</textarea>
+                            <label for="floatingDescription">Описание</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, заполните поле
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" name="change_material" value="1" type="submit">Изменить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% block errors %}
+    {% if errors is not empty %}
+        <section class="container error">
+            {% for error in errors %}
+                <h5 class="my-md-4 my-3" style="color: #ee3737;">{{ error }}</h5>
+
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
